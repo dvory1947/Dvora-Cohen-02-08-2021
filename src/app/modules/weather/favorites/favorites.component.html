@@ -1,0 +1,11 @@
+<div class="div-favorites">
+    <div *ngFor='let w of currentWeathers; let l of favorites' >
+      <div class="card w-50">
+        <div class="card-body">
+          <h5 class="card-title">{{l.LocalizedName}}</h5>
+          {{w.Temperature}}°{{w.Temperature}}
+          <h5 class="card-title">{{w.weatherText}}</h5>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,29 @@
+<div>
+
+  <div style="width: 50%; margin: 5%;" class="input-group mb-3">
+    <span (click)="SearchCity(cityName.value)" class="input-group-text" id="basic-addon1" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+      <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+    </svg></span>
+    <input  type="text" class="form-control" placeholder="City name" aria-label="City name" aria-describedby="basic-addon1" #cityName>
+  </div>
+
+  <div class="city">
+    <button type="button" class="btn btn-light" *ngIf="isToAdd" (click)="addToFavorites()">Add to favorites</button>
+    <button type="button" class="btn btn-light" *ngIf="!isToAdd" (click)="removeFromFavorites()">Remove from favorites</button>
+    <h3 >{{currentLocation.LocalizedName}}<br/>{{currentWeather.Temperature?.Metric.Value}}°{{currentWeather.Temperature?.Metric.Unit}}</h3>
+    <h1>{{currentWeather.WeatherText}}</h1>
+    </div>  
+
+    <!-- 5 days -->
+    <div class="div-days">
+      <div *ngFor='let day of days' >
+        <div class="card w-50">
+          <div class="card-body">
+            <h5 class="card-title">{{day.Date.toString()}}</h5>
+            <p class="card-text"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+</div>
