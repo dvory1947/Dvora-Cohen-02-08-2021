@@ -10,7 +10,4 @@ export class AppComponent {
 
  constructor(private router :Router){}
   title = 'Dvora-Cohen';
-  // ngOnInit(){
-  //   this.router.navigate(['home/',{cityName: "Tel Aviv"}]);
-  // }
 }
