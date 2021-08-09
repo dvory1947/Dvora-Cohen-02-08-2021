@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component ,OnInit} from '@angular/core';
 import{Router} from '@angular/router'
 
 @Component({
@@ -7,9 +7,10 @@ import{Router} from '@angular/router'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  // constructor(private router: Router){
-  //   this.router.navigate(['',{"Tel Aviv"])
-  // }
-  title = 'Dvora-Cohen';
 
+ constructor(private router :Router){}
+  title = 'Dvora-Cohen';
+  // ngOnInit(){
+  //   this.router.navigate(['home/',{cityName: "Tel Aviv"}]);
+  // }
 }

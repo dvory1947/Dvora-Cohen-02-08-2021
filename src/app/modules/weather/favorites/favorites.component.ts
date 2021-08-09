@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Location } from 'src/app/models/location.model';
 import { Weather } from 'src/app/models/weather.model';
 import { WeatherService } from '../weather.service';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-favorites',
@@ -11,23 +11,21 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class FavoritesComponent implements OnInit {
 
-  constructor(private _weatherService: WeatherService) { }
+  constructor(private _weatherService: WeatherService, private router: Router) { }
   favorites: Location[]
-  currentWeathers?: Weather[];
+  currentWeathers: Weather[]=[];
 
 
   ngOnInit(): void {
     this.favorites = this._weatherService.favorites;
-    this.favorites.forEach(f => {
-      let i =0
+    this.favorites.map(f => {
       this._weatherService.getCurrentWeather(f.Key).subscribe(w => {
-        this.currentWeathers[i] = w[0];
-        i++;
-        console.log("currentWeathers:" ,this.currentWeathers);
+        this.currentWeathers.push(w[0]);
       }, err => { console.log(err) })
     })
   }
-getWeather(name){
-
-}
+  getWeather(name) {
+    this._weatherService.defaultCity = name;
+    this.router.navigate(['home']);
+  }
 }

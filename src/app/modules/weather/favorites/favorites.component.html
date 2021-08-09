@@ -1,10 +1,10 @@
 <div class="div-favorites">
     <div *ngFor='let w of currentWeathers; let l of favorites' >
       <div class="card w-50">
-        <div class="card-body">
+        <div class="card-body" (click)="getWeather(l.LocalizedName)"> 
           <h5 class="card-title">{{l.LocalizedName}}</h5>
-          {{w.Temperature}}°{{w.Temperature}}
-          <h5 class="card-title">{{w.weatherText}}</h5>
+          {{w.Temperature?.Metric.Value}}°{{w.Temperature?.Metric.Unit}}
+          <h5 class="card-title">{{w.WeatherText}}</h5>
         </div>
       </div>
     </div>

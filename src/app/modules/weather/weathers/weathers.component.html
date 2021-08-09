@@ -16,13 +16,11 @@
 
     <!-- 5 days -->
     <div class="div-days">
-      <div *ngFor='let day of days' >
-        <div class="card w-50">
-          <div class="card-body">
-            <h5 class="card-title">{{day.Date.toString()}}</h5>
-            <p class="card-text"></p>
-          </div>
-        </div>
+      <div *ngFor='let day of dailyForecast.DailyForecasts' >
+    <div>
+            <p class="card-title">{{day.Date.toString().split(' ')[0]}}</p>
+            <p class="card-text">{{day.Temperature?.Maximum.Value}}°{{day.Temperature?.Maximum.Unit}}</p>
+     </div>   
       </div>
     </div>
   
